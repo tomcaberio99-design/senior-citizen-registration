@@ -1,0 +1,229 @@
+:root {
+  --bg: #f7efe5;
+  --bg-accent: #f3d9b1;
+  --panel: rgba(255, 251, 245, 0.86);
+  --line: rgba(95, 57, 27, 0.14);
+  --text: #2e2318;
+  --muted: #6e5a45;
+  --primary: #a34c1c;
+  --primary-dark: #7c3610;
+  --success-bg: #e8f5e9;
+  --success-text: #1f5f2d;
+  --error-bg: #fdecea;
+  --error-text: #8a1f17;
+  --shadow: 0 24px 60px rgba(102, 58, 20, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.75), transparent 30%),
+    linear-gradient(135deg, var(--bg), var(--bg-accent));
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.hero-card,
+.form-card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.hero-card h1,
+.section-heading h2 {
+  margin: 0;
+}
+
+.hero-card h1 {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.95;
+  max-width: 10ch;
+}
+
+.hero-copy {
+  max-width: 56ch;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.hero-badges span,
+.age-pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero-badges span {
+  padding: 0.75rem 1rem;
+}
+
+.form-card {
+  padding: 1.75rem;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+}
+
+.age-pill {
+  padding: 0.85rem 1rem;
+  min-width: 120px;
+  text-align: center;
+}
+
+.age-pill span {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.age-pill strong {
+  font-size: 1.8rem;
+}
+
+.registration-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.registration-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.95rem;
+}
+
+.registration-form input,
+.registration-form select {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.95rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.registration-form input:focus,
+.registration-form select:focus {
+  outline: 2px solid rgba(163, 76, 28, 0.18);
+  border-color: var(--primary);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.registration-form button {
+  grid-column: 1 / -1;
+  border: 0;
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  font-weight: 700;
+  color: #fff8f2;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  cursor: pointer;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.registration-form button:hover {
+  transform: translateY(-1px);
+}
+
+.registration-form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.notice {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+}
+
+.notice.success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.notice.error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 1rem, 1120px);
+    padding-top: 1rem;
+  }
+
+  .hero-card,
+  .form-card {
+    border-radius: 22px;
+    padding: 1.25rem;
+  }
+
+  .section-heading,
+  .registration-form {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    display: grid;
+  }
+
+  .full-width,
+  .registration-form button {
+    grid-column: auto;
+  }
+}
