@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   dashboardAnnouncements,
+  getPayoutStatus,
   programCards,
+  payoutBulletin,
   targetSchedules
 } from "../portal-data";
 import { clearSession, findUserByEmail, getSession } from "../portal-storage";
@@ -49,6 +51,7 @@ export default function DashboardPage() {
   }
 
   const { profile } = user;
+  const payoutStatus = getPayoutStatus(profile.barangay);
 
   return (
     <main className="page-shell">
@@ -94,6 +97,36 @@ export default function DashboardPage() {
         </article>
       </section>
 
+      <section className={`payout-focus-card ${payoutStatus.included ? "included" : "waiting"}`}>
+        <div className="section-heading compact">
+          <div>
+            <p className="section-kicker">Payout Announcement</p>
+            <h2>{payoutStatus.title}</h2>
+            <p className="section-copy">{payoutStatus.detail}</p>
+          </div>
+          <div className={`status-chip ${payoutStatus.included ? "success" : "pending"}`}>
+            {payoutStatus.label}
+          </div>
+        </div>
+
+        <div className="payout-focus-grid">
+          <article className="payout-mini-card">
+            <strong>Release Date</strong>
+            <p>{payoutBulletin.releaseDate}</p>
+          </article>
+          <article className="payout-mini-card">
+            <strong>Venue</strong>
+            <p>{payoutBulletin.venue}</p>
+          </article>
+          <article className="payout-mini-card">
+            <strong>Claim Window</strong>
+            <p>{payoutBulletin.claimWindow}</p>
+          </article>
+        </div>
+
+        <p className="payout-helper">{payoutStatus.helper}</p>
+      </section>
+
       <section className="dashboard-grid">
         <article className="dashboard-card profile-card">
           <p className="section-kicker">Registration Summary</p>
@@ -102,6 +135,7 @@ export default function DashboardPage() {
             <div><strong>Reference ID:</strong> {profile.referenceId || "Pending generation"}</div>
             <div><strong>Status:</strong> Pending Review</div>
             <div><strong>Barangay:</strong> {profile.barangay}</div>
+            <div><strong>Payout Bulletin:</strong> {payoutStatus.label}</div>
             <div><strong>Age:</strong> {profile.age}</div>
             <div><strong>Contact:</strong> {profile.phone}</div>
             <div><strong>Email:</strong> {user.email}</div>

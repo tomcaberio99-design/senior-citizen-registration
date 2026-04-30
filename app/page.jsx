@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   announcementItems,
+  payoutBulletin,
   programCards,
   targetSchedules
 } from "./portal-data";
@@ -100,6 +101,38 @@ export default function HomePage() {
             <span>03</span>
             <h3>Track Notices</h3>
             <p>Dashboard reminders help prepare for validation, payout updates, and LGU follow-up.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="payout-board-card">
+        <div className="section-heading">
+          <div>
+            <p className="section-kicker">Current Payout Bulletin</p>
+            <h2>{payoutBulletin.title}</h2>
+            <p className="section-copy">
+              {payoutBulletin.releaseDate} at {payoutBulletin.venue} - {payoutBulletin.claimWindow}
+            </p>
+          </div>
+          <div className="status-chip success">Live Announcement</div>
+        </div>
+
+        <div className="payout-board-grid">
+          <article className="payout-board-panel">
+            <strong>Included Barangays</strong>
+            <div className="chip-list">
+              {payoutBulletin.includedBarangays.map((barangay) => (
+                <span key={barangay}>{barangay}</span>
+              ))}
+            </div>
+          </article>
+
+          <article className="payout-board-panel">
+            <strong>Claim Reminder</strong>
+            <p>{payoutBulletin.note}</p>
+            <Link href="/login" className="button-link primary compact-button">
+              Check My Dashboard
+            </Link>
           </article>
         </div>
       </section>

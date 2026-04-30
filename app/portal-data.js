@@ -37,9 +37,9 @@ export const programCards = [
 export const targetSchedules = [
   {
     program: "Social Pension Payout",
-    targetDate: "Editable by LGU",
-    coverage: "Clustered barangays per advisory",
-    note: "Replace this text with the official payout schedule before final rollout."
+    targetDate: "May 20, 2026",
+    coverage: "Cluster A barangays",
+    note: "Initial sample schedule for portal demo. Update with official LGU payout bulletin."
   },
   {
     program: "Senior ID Validation",
@@ -75,3 +75,40 @@ export const dashboardAnnouncements = [
     body: "Prepare your valid ID, OSCA information, and contact details for validation follow-up."
   }
 ];
+
+export const payoutBulletin = {
+  title: "Social Pension Payout Bulletin",
+  releaseDate: "May 20, 2026",
+  venue: "Alegria Municipal Gym",
+  claimWindow: "8:00 AM to 3:00 PM",
+  includedBarangays: [
+    "Poblacion (Alegria)",
+    "San Juan",
+    "San Pedro",
+    "Don Julio Ouano"
+  ],
+  note: "Bring valid ID and wait for your barangay cluster schedule before visiting the payout site."
+};
+
+export function getPayoutStatus(barangay) {
+  const normalizedBarangay = String(barangay ?? "").trim();
+  const isIncluded = payoutBulletin.includedBarangays.includes(normalizedBarangay);
+
+  if (isIncluded) {
+    return {
+      included: true,
+      label: "Included in Payout",
+      title: `${normalizedBarangay} is included in the current release.`,
+      detail: `Proceed to ${payoutBulletin.venue} on ${payoutBulletin.releaseDate}, ${payoutBulletin.claimWindow}.`,
+      helper: "Please bring a valid ID and wait for the barangay call sequence."
+    };
+  }
+
+  return {
+    included: false,
+    label: "Waiting for Next Cluster",
+    title: `${normalizedBarangay || "Your barangay"} is not yet listed in the current payout batch.`,
+    detail: "Please monitor the next LGU advisory for the updated clustered payout schedule.",
+    helper: "Dashboard announcements will be updated once your barangay is included."
+  };
+}

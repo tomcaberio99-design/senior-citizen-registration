@@ -74,7 +74,9 @@ h3 {
 .form-card,
 .info-card,
 .schedule-card,
-.process-card {
+.process-card,
+.payout-board-card,
+.payout-focus-card {
   background: var(--panel);
   backdrop-filter: blur(14px);
   border: 1px solid var(--line);
@@ -325,7 +327,9 @@ h3 {
 .info-card,
 .schedule-card,
 .form-card,
-.process-card {
+.process-card,
+.payout-board-card,
+.payout-focus-card {
   padding: 1.75rem;
 }
 
@@ -458,6 +462,79 @@ h3 {
 
 .process-card {
   margin-bottom: 1.5rem;
+}
+
+.payout-board-card,
+.payout-focus-card {
+  margin-bottom: 1.5rem;
+}
+
+.payout-board-grid,
+.payout-focus-grid,
+.chip-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.payout-board-grid {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.payout-board-panel,
+.payout-mini-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 1rem 1.05rem;
+}
+
+.payout-board-panel strong,
+.payout-mini-card strong {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--primary-dark);
+}
+
+.chip-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chip-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.7rem 0.85rem;
+  border-radius: 16px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-weight: 700;
+  text-align: center;
+}
+
+.compact-button {
+  margin-top: 1rem;
+}
+
+.payout-focus-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(230, 245, 255, 0.9));
+}
+
+.payout-focus-card.included {
+  border-color: rgba(47, 143, 107, 0.22);
+}
+
+.payout-focus-card.waiting {
+  border-color: rgba(198, 122, 24, 0.22);
+}
+
+.payout-focus-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.payout-helper {
+  margin: 1rem 0 0;
+  color: var(--muted);
 }
 
 .process-grid {
@@ -692,7 +769,10 @@ h3 {
   .dashboard-grid,
   .hero-stats,
   .process-grid,
-  .status-overview-grid {
+  .status-overview-grid,
+  .payout-board-grid,
+  .payout-focus-grid,
+  .chip-list {
     grid-template-columns: 1fr;
   }
 }
@@ -708,6 +788,8 @@ h3 {
   .info-card,
   .schedule-card,
   .process-card,
+  .payout-board-card,
+  .payout-focus-card,
   .subpage-hero,
   .dashboard-hero,
   .dashboard-card {
