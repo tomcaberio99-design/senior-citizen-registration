@@ -23,13 +23,13 @@ export const programCards = [
   {
     title: "Social Pension Monitoring",
     description:
-      "Advisories for target payout, beneficiary reminders, and pending validation notices.",
+      "Payout advisories, beneficiary reminders, and pending validation notices.",
     badge: "Advisory"
   },
   {
     title: "Centenarian Benefit Program",
     description:
-      "Support updates for milestone beneficiaries aged 80, 85, 90, 95, and 100 years old.",
+      "Program updates for milestone beneficiaries aged 80, 85, 90, 95, and 100 years old.",
     badge: "Milestone"
   }
 ];
@@ -38,8 +38,8 @@ export const targetSchedules = [
   {
     program: "Social Pension Payout",
     targetDate: "May 20, 2026",
-    coverage: "Cluster A barangays",
-    note: "Initial sample schedule for portal demo. Update with official LGU payout bulletin."
+    coverage: "Cluster A Barangays",
+    note: "Sample schedule for the portal demo. Update this section with the official LGU payout bulletin."
   },
   {
     program: "Senior ID Validation",
@@ -56,23 +56,23 @@ export const targetSchedules = [
 ];
 
 export const announcementItems = [
-  "Bring valid identification and supporting documents during final validation.",
-  "Online submissions are marked pending until reviewed by the MSWDO staff.",
-  "Target payout schedules may change based on fund release and barangay clustering."
+  "Bring a valid ID and supporting documents during final validation.",
+  "Online submissions remain pending until reviewed by MSWDO staff.",
+  "Payout schedules may change based on fund release and Barangay clustering."
 ];
 
 export const dashboardAnnouncements = [
   {
     title: "Pending Application Review",
-    body: "Online applications are reviewed by MSWDO staff before they appear as approved in the LGU registry."
+    body: "Online applications are reviewed by MSWDO staff before they are marked approved in the LGU registry."
   },
   {
     title: "Payout Advisory",
-    body: "Please wait for the official barangay cluster schedule before visiting the payout site."
+    body: "Please wait for the official Barangay cluster schedule before visiting the payout site."
   },
   {
     title: "Document Reminder",
-    body: "Prepare your valid ID, OSCA information, and contact details for validation follow-up."
+    body: "Prepare your valid ID, OSCA details, and contact information for validation follow-up."
   }
 ];
 
@@ -87,7 +87,7 @@ export const payoutBulletin = {
     "San Pedro",
     "Don Julio Ouano"
   ],
-  note: "Bring valid ID and wait for your barangay cluster schedule before visiting the payout site."
+  note: "Bring a valid ID and wait for your Barangay cluster schedule before visiting the payout site."
 };
 
 export function getPayoutStatus(barangay) {
@@ -98,17 +98,17 @@ export function getPayoutStatus(barangay) {
     return {
       included: true,
       label: "Included in Payout",
-      title: `${normalizedBarangay} is included in the current release.`,
+      title: `${normalizedBarangay} is included in the current payout release.`,
       detail: `Proceed to ${payoutBulletin.venue} on ${payoutBulletin.releaseDate}, ${payoutBulletin.claimWindow}.`,
-      helper: "Please bring a valid ID and wait for the barangay call sequence."
+      helper: "Please bring a valid ID and wait for the official Barangay call sequence."
     };
   }
 
   return {
     included: false,
-    label: "Waiting for Next Cluster",
-    title: `${normalizedBarangay || "Your barangay"} is not yet listed in the current payout batch.`,
-    detail: "Please monitor the next LGU advisory for the updated clustered payout schedule.",
-    helper: "Dashboard announcements will be updated once your barangay is included."
+    label: "Waiting for Next Schedule",
+    title: `${normalizedBarangay || "Your Barangay"} is not yet listed in the current payout batch.`,
+    detail: "Please wait for the next LGU advisory for the updated clustered payout schedule.",
+    helper: "Dashboard announcements will be updated once your Barangay is included."
   };
 }

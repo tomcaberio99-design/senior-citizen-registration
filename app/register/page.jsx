@@ -140,7 +140,7 @@ export default function RegisterPage() {
         <p className="eyebrow">Online Registration</p>
         <h1>Create Applicant Account</h1>
         <p className="hero-copy">
-          Fill out the pre-registration form and create your portal login so you can
+          Complete the pre-registration form and create your portal login so you can
           check announcements and follow-up notices.
         </p>
         <div className="hero-badges">
@@ -165,7 +165,7 @@ export default function RegisterPage() {
             <h2>Senior Citizen Registration</h2>
             <p className="section-copy">
               Qualified applicants must be at least 60 years old. All online submissions
-              will be forwarded to the LGU system as pending until staff validation.
+              are forwarded to the LGU system as pending until staff validation is completed.
             </p>
           </div>
           <div className="age-pill">
@@ -177,10 +177,10 @@ export default function RegisterPage() {
         <div className="form-intro-grid">
           <article className="info-callout">
             <strong>Before you continue</strong>
-            <p>Prepare the applicant&apos;s complete name, birth date, address, and contact number.</p>
+            <p>Prepare the applicant&apos;s full name, birth date, address, and contact number.</p>
           </article>
           <article className="info-callout emphasis">
-            <strong>What happens after submit</strong>
+            <strong>What happens after submission</strong>
             <p>The portal creates a reference ID, saves the user session, and sends the record for LGU review.</p>
           </article>
         </div>
@@ -209,7 +209,7 @@ export default function RegisterPage() {
           <label>
             Sex
             <select required name="sex" value={formData.sex} onChange={handleChange}>
-              <option value="">Select sex</option>
+              <option value="">Select Sex</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
@@ -218,7 +218,7 @@ export default function RegisterPage() {
           <label>
             Civil Status
             <select required name="civilStatus" value={formData.civilStatus} onChange={handleChange}>
-              <option value="">Select status</option>
+              <option value="">Select Status</option>
               <option value="Single">Single</option>
               <option value="Married">Married</option>
               <option value="Widowed">Widowed</option>
@@ -239,7 +239,7 @@ export default function RegisterPage() {
           <label>
             Barangay
             <select required name="barangay" value={formData.barangay} onChange={handleChange}>
-              <option value="">Select barangay</option>
+              <option value="">Select Barangay</option>
               {barangays.map((barangay) => (
                 <option key={barangay} value={barangay}>
                   {barangay}

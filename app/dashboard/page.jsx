@@ -44,7 +44,7 @@ export default function DashboardPage() {
       <main className="page-shell narrow-shell">
         <section className="form-card auth-card">
           <p className="section-kicker">Loading</p>
-          <h2>Preparing dashboard...</h2>
+          <h2>Preparing Dashboard...</h2>
         </section>
       </main>
     );
@@ -65,7 +65,7 @@ export default function DashboardPage() {
           <h1>Welcome, {profile.firstName}</h1>
           <p className="hero-copy">
             This dashboard shows your current registration status, announcements, and
-            target payout reminders from the LGU Alegria MSWDO portal.
+            payout reminders from the LGU Alegria MSWDO portal.
           </p>
         </div>
 
@@ -82,17 +82,17 @@ export default function DashboardPage() {
       <section className="status-overview-grid">
         <article className="status-overview-card">
           <span className="status-chip pending">Pending Review</span>
-          <h2>Online registration received</h2>
+          <h2>Online Registration Received</h2>
           <p>Your applicant record is already in the portal and is waiting for MSWDO validation.</p>
         </article>
         <article className="status-overview-card">
           <span className="status-chip neutral">Next Step</span>
-          <h2>Prepare your documents</h2>
-          <p>Keep valid ID and supporting details ready in case follow-up confirmation is requested.</p>
+          <h2>Prepare Your Documents</h2>
+          <p>Keep your valid ID and supporting details ready in case follow-up confirmation is required.</p>
         </article>
         <article className="status-overview-card">
           <span className="status-chip success">Portal Ready</span>
-          <h2>Check notices anytime</h2>
+          <h2>Check Notices Anytime</h2>
           <p>Return here for payout advisories, processing reminders, and applicant updates.</p>
         </article>
       </section>

@@ -81,17 +81,17 @@ export default function LoginPage() {
 
         <div className="auth-help-grid">
           <article className="info-callout">
-            <strong>Login reminder</strong>
-            <p>Use the account that was created after a successful applicant registration.</p>
+            <strong>Login Reminder</strong>
+            <p>Use the account created after a successful online registration.</p>
           </article>
           <article className="info-callout">
-            <strong>Need an account first?</strong>
-            <p>Create a new applicant account before checking status, notices, and dashboard details.</p>
+            <strong>Need an Account First?</strong>
+            <p>Create a new applicant account before checking your status, notices, and dashboard details.</p>
           </article>
         </div>
 
         <p className="auth-switch">
-          No account yet? <Link href="/register">Register here</Link>
+          Do not have an account yet? <Link href="/register">Register here</Link>
         </p>
       </section>
     </main>

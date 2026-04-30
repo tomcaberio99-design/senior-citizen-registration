@@ -19,8 +19,8 @@ export default function HomePage() {
             <p className="eyebrow">LGU Alegria - MSWDO</p>
             <h1>Senior Citizen Services Portal</h1>
             <p className="hero-copy">
-              Official portal for senior citizen online registration, target payout
-              advisories, and municipal announcements for LGU Alegria.
+              Official portal for senior citizen online registration, payout advisories,
+              and community announcements for LGU Alegria.
             </p>
             <div className="hero-badges">
               <span>Online Registration</span>
@@ -43,11 +43,11 @@ export default function HomePage() {
               </article>
               <article>
                 <strong>Application Status</strong>
-                <p>Online submissions are saved as pending while waiting for LGU review.</p>
+                <p>Online submissions are recorded as pending while waiting for LGU review.</p>
               </article>
               <article>
                 <strong>Support Office</strong>
-                <p>MSWDO Alegria handles validation, registry confirmation, and assistance.</p>
+                <p>MSWDO Alegria handles validation, registry confirmation, and applicant assistance.</p>
               </article>
             </div>
           </div>
@@ -56,7 +56,7 @@ export default function HomePage() {
             <p className="hero-panel-label">Current Advisory</p>
             <h2>Pending online applications are reviewed by MSWDO staff.</h2>
             <p>
-              Registrations from this portal are submitted as pending records until
+              Registrations submitted through this portal remain pending until they are
               validated and approved in the main LGU system.
             </p>
             <div className="hero-panel-stack">
@@ -66,11 +66,11 @@ export default function HomePage() {
               </div>
               <div className="hero-panel-item">
                 <strong>Step 2</strong>
-                <p>Portal creates a reference ID and forwards the record to the LGU bridge.</p>
+                <p>The portal creates a reference ID and forwards the record to the LGU bridge.</p>
               </div>
               <div className="hero-panel-item">
                 <strong>Step 3</strong>
-                <p>Applicant checks the dashboard for reminders, schedules, and follow-up notices.</p>
+                <p>Applicants can check the dashboard for reminders, schedules, and follow-up notices.</p>
               </div>
             </div>
           </div>
@@ -83,24 +83,24 @@ export default function HomePage() {
             <p className="section-kicker">Simple Flow</p>
             <h2>Designed for clear online-to-office processing</h2>
           </div>
-          <div className="status-chip pending">Pending applications stay visible in the portal</div>
+          <div className="status-chip pending">Pending applications remain visible in the portal</div>
         </div>
 
         <div className="process-grid">
           <article className="process-item">
             <span>01</span>
             <h3>Create Account</h3>
-            <p>Applicants or family members can start with a guided account registration flow.</p>
+            <p>Applicants or family members can begin with a guided account registration process.</p>
           </article>
           <article className="process-item">
             <span>02</span>
             <h3>Submit Details</h3>
-            <p>Qualified senior data is validated, assigned a reference ID, and sent to the backend.</p>
+            <p>Qualified applicant details are validated, assigned a reference ID, and sent to the backend.</p>
           </article>
           <article className="process-item">
             <span>03</span>
             <h3>Track Notices</h3>
-            <p>Dashboard reminders help prepare for validation, payout updates, and LGU follow-up.</p>
+            <p>Dashboard reminders help applicants prepare for validation, payout updates, and LGU follow-up.</p>
           </article>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function HomePage() {
             <strong>Claim Reminder</strong>
             <p>{payoutBulletin.note}</p>
             <Link href="/login" className="button-link primary compact-button">
-              Check My Dashboard
+              View My Dashboard
             </Link>
           </article>
         </div>
@@ -163,7 +163,7 @@ export default function HomePage() {
           <div className="section-heading compact">
             <div>
               <p className="section-kicker">Reminders</p>
-              <h2>Applicant Notes</h2>
+              <h2>Applicant Reminders</h2>
             </div>
           </div>
 
@@ -182,7 +182,7 @@ export default function HomePage() {
         <div className="section-heading">
           <div>
             <p className="section-kicker">Schedule Board</p>
-            <h2>Target Payout and Processing Schedule</h2>
+            <h2>Payout and Processing Schedule</h2>
           </div>
           <div className="age-pill status-panel">
             <span>Portal Status</span>
