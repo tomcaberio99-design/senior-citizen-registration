@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PortalBrand from "./portal-brand";
 import {
   announcementItems,
   payoutBulletin,
@@ -9,9 +10,10 @@ import {
 export default function HomePage() {
   return (
     <main className="page-shell">
-      <section className="hero-card">
+      <section className="hero-card branded-surface">
         <div className="hero-grid">
           <div>
+            <PortalBrand />
             <div className="service-ribbon">
               <span>Municipal Digital Service</span>
               <span>Senior-Friendly Portal</span>

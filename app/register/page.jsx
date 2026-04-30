@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import PortalBrand from "../portal-brand";
 import { barangays } from "../portal-data";
 import { saveUser, setSession } from "../portal-storage";
 
@@ -132,7 +133,8 @@ export default function RegisterPage() {
 
   return (
     <main className="page-shell">
-      <section className="subpage-hero">
+      <section className="subpage-hero branded-surface compact-surface">
+        <PortalBrand compact />
         <div className="service-ribbon">
           <span>Registration Module</span>
           <span>Pending Review Workflow</span>

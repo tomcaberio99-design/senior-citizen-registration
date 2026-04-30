@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import PortalBrand from "../portal-brand";
 import {
   dashboardAnnouncements,
   getPayoutStatus,
@@ -55,8 +56,9 @@ export default function DashboardPage() {
 
   return (
     <main className="page-shell">
-      <section className="dashboard-hero">
+      <section className="dashboard-hero branded-surface compact-surface">
         <div>
+          <PortalBrand compact />
           <div className="service-ribbon">
             <span>Applicant Dashboard</span>
             <span>LGU Tracking View</span>

@@ -91,6 +91,23 @@ h3 {
   overflow: hidden;
 }
 
+.branded-surface {
+  background:
+    linear-gradient(135deg, rgba(8, 37, 66, 0.9), rgba(13, 78, 130, 0.82)),
+    url("/mswdo-bg.jpg") center/cover;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.branded-surface .hero-copy,
+.branded-surface .section-copy,
+.branded-surface .portal-brand-copy p {
+  color: rgba(236, 244, 251, 0.84);
+}
+
+.compact-surface {
+  padding-top: 1.35rem;
+}
+
 .hero-card::after,
 .subpage-hero::after,
 .dashboard-hero::after {
@@ -103,6 +120,67 @@ h3 {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(22, 93, 151, 0.16), transparent 68%);
   pointer-events: none;
+}
+
+.portal-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.portal-brand.compact {
+  margin-bottom: 0.85rem;
+}
+
+.portal-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  box-shadow: 0 12px 28px rgba(10, 34, 58, 0.18);
+  overflow: hidden;
+}
+
+.portal-brand.compact .portal-brand-logo {
+  width: 62px;
+  height: 62px;
+  flex-basis: 62px;
+  border-radius: 18px;
+}
+
+.portal-brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portal-brand-copy p,
+.portal-brand-copy strong {
+  margin: 0;
+}
+
+.portal-brand-copy p {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.portal-brand-copy strong {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: Cambria, Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  line-height: 1.15;
+  color: #ffffff;
 }
 
 .hero-card {
@@ -154,6 +232,13 @@ h3 {
   color: var(--primary-dark);
 }
 
+.branded-surface .service-ribbon span {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(247, 252, 255, 0.16);
+  color: #f5fbff;
+  backdrop-filter: blur(6px);
+}
+
 .hero-panel-label,
 .eyebrow,
 .section-kicker,
@@ -168,6 +253,10 @@ h3 {
 
 .hero-panel-label {
   color: rgba(235, 247, 255, 0.82);
+}
+
+.branded-surface .eyebrow {
+  color: #ffd56b;
 }
 
 .hero-card h1,
@@ -251,6 +340,12 @@ h3 {
   background: rgba(255, 255, 255, 0.78);
 }
 
+.branded-surface .hero-badges span {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fbff;
+}
+
 .hero-badges span {
   padding: 0.75rem 1rem;
 }
@@ -270,6 +365,11 @@ h3 {
   border-radius: 22px;
   background: rgba(247, 250, 252, 0.9);
   padding: 1rem 1.05rem;
+}
+
+.branded-surface .hero-stats article {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(244, 249, 252, 0.92);
 }
 
 .hero-stats strong,

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import PortalBrand from "../portal-brand";
 import { findUserByEmail, setSession } from "../portal-storage";
 
 export default function LoginPage() {
@@ -31,7 +32,8 @@ export default function LoginPage() {
 
   return (
     <main className="page-shell narrow-shell">
-      <section className="subpage-hero">
+      <section className="subpage-hero branded-surface compact-surface">
+        <PortalBrand compact />
         <div className="service-ribbon">
           <span>Secure Applicant Access</span>
           <span>Dashboard Login</span>
