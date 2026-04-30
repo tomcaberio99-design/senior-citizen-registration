@@ -21,15 +21,15 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const requiredFields = [
-      "fullName",
+      "firstName",
+      "lastName",
       "birthDate",
-      "gender",
+      "sex",
       "civilStatus",
-      "address",
       "barangay",
-      "phone",
-      "emergencyContact",
-      "emergencyPhone"
+      "city",
+      "province",
+      "phone"
     ];
 
     for (const field of requiredFields) {
@@ -56,9 +56,18 @@ export async function POST(request) {
       );
     }
 
+    const referenceId = createReferenceId();
+
     return Response.json({
-      message: "Registration submitted successfully. Please wait for LGU verification.",
-      referenceId: createReferenceId()
+      message:
+        "Registration submitted successfully. This online application should be reviewed as a pending record in the LGU system.",
+      referenceId,
+      submittedData: {
+        ...body,
+        age,
+        referenceId,
+        applicationStatus: "pending"
+      }
     });
   } catch {
     return Response.json(
