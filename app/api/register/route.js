@@ -17,23 +17,62 @@ function createReferenceId() {
   return `SC-${timestamp}-${random}`;
 }
 
+function normalizeText(value) {
+  return String(value ?? "").trim();
+}
+
+function getRequiredFields(body) {
+  return [
+    ["firstName", body.firstName],
+    ["lastName", body.lastName],
+    ["birthDate", body.birthDate],
+    ["sex", body.sex],
+    ["civilStatus", body.civilStatus],
+    ["barangay", body.barangay],
+    ["city", body.city],
+    ["province", body.province],
+    ["phone", body.phone],
+    ["email", body.email]
+  ];
+}
+
+async function forwardToPhpSystem(payload) {
+  const backendUrl = process.env.LGU_API_URL;
+  const apiKey = process.env.LGU_API_KEY;
+
+  if (!backendUrl) {
+    throw new Error("LGU_API_URL is not configured in Vercel.");
+  }
+
+  if (!apiKey) {
+    throw new Error("LGU_API_KEY is not configured in Vercel.");
+  }
+
+  const response = await fetch(backendUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-api-key": apiKey
+    },
+    body: JSON.stringify(payload),
+    cache: "no-store"
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    throw new Error(data?.message || "LGU backend rejected the registration.");
+  }
+
+  return data;
+}
+
 export async function POST(request) {
   try {
     const body = await request.json();
-    const requiredFields = [
-      "firstName",
-      "lastName",
-      "birthDate",
-      "sex",
-      "civilStatus",
-      "barangay",
-      "city",
-      "province",
-      "phone"
-    ];
 
-    for (const field of requiredFields) {
-      if (!body[field] || String(body[field]).trim() === "") {
+    for (const [field, value] of getRequiredFields(body)) {
+      if (!normalizeText(value)) {
         return Response.json(
           { message: `Missing required field: ${field}` },
           { status: 400 }
@@ -58,20 +97,39 @@ export async function POST(request) {
 
     const referenceId = createReferenceId();
 
+    const payload = {
+      referenceId,
+      source: "vercel_portal",
+      applicationStatus: "pending",
+      firstName: normalizeText(body.firstName),
+      middleName: normalizeText(body.middleName),
+      lastName: normalizeText(body.lastName),
+      birthDate: normalizeText(body.birthDate),
+      age,
+      sex: normalizeText(body.sex),
+      civilStatus: normalizeText(body.civilStatus),
+      houseNo: normalizeText(body.houseNo),
+      street: normalizeText(body.street),
+      barangay: normalizeText(body.barangay),
+      city: normalizeText(body.city),
+      province: normalizeText(body.province),
+      phone: normalizeText(body.phone),
+      email: normalizeText(body.email)
+    };
+
+    const backendResult = await forwardToPhpSystem(payload);
+
     return Response.json({
       message:
-        "Registration submitted successfully. This online application should be reviewed as a pending record in the LGU system.",
-      referenceId,
-      submittedData: {
-        ...body,
-        age,
-        referenceId,
-        applicationStatus: "pending"
-      }
+        backendResult.message ||
+        "Registration submitted successfully. Please wait for LGU verification.",
+      referenceId: backendResult.referenceId || referenceId
     });
-  } catch {
+  } catch (error) {
     return Response.json(
-      { message: "Unable to process registration at the moment." },
+      {
+        message: error.message || "Unable to process registration at the moment."
+      },
       { status: 500 }
     );
   }

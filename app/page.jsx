@@ -11,7 +11,11 @@ export default function HomePage() {
       <section className="hero-card">
         <div className="hero-grid">
           <div>
-            <p className="eyebrow">LGU Alegria · MSWDO</p>
+            <div className="service-ribbon">
+              <span>Municipal Digital Service</span>
+              <span>Senior-Friendly Portal</span>
+            </div>
+            <p className="eyebrow">LGU Alegria - MSWDO</p>
             <h1>Senior Citizen Services Portal</h1>
             <p className="hero-copy">
               Official portal for senior citizen online registration, target payout
@@ -30,6 +34,21 @@ export default function HomePage() {
                 Login to Dashboard
               </Link>
             </div>
+
+            <div className="hero-stats">
+              <article>
+                <strong>Portal Access</strong>
+                <p>Available anytime for pre-registration and applicant follow-up notices.</p>
+              </article>
+              <article>
+                <strong>Application Status</strong>
+                <p>Online submissions are saved as pending while waiting for LGU review.</p>
+              </article>
+              <article>
+                <strong>Support Office</strong>
+                <p>MSWDO Alegria handles validation, registry confirmation, and assistance.</p>
+              </article>
+            </div>
           </div>
 
           <div className="hero-panel">
@@ -39,7 +58,49 @@ export default function HomePage() {
               Registrations from this portal are submitted as pending records until
               validated and approved in the main LGU system.
             </p>
+            <div className="hero-panel-stack">
+              <div className="hero-panel-item">
+                <strong>Step 1</strong>
+                <p>Complete the online form with personal, address, and contact details.</p>
+              </div>
+              <div className="hero-panel-item">
+                <strong>Step 2</strong>
+                <p>Portal creates a reference ID and forwards the record to the LGU bridge.</p>
+              </div>
+              <div className="hero-panel-item">
+                <strong>Step 3</strong>
+                <p>Applicant checks the dashboard for reminders, schedules, and follow-up notices.</p>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <section className="process-card">
+        <div className="section-heading">
+          <div>
+            <p className="section-kicker">Simple Flow</p>
+            <h2>Designed for clear online-to-office processing</h2>
+          </div>
+          <div className="status-chip pending">Pending applications stay visible in the portal</div>
+        </div>
+
+        <div className="process-grid">
+          <article className="process-item">
+            <span>01</span>
+            <h3>Create Account</h3>
+            <p>Applicants or family members can start with a guided account registration flow.</p>
+          </article>
+          <article className="process-item">
+            <span>02</span>
+            <h3>Submit Details</h3>
+            <p>Qualified senior data is validated, assigned a reference ID, and sent to the backend.</p>
+          </article>
+          <article className="process-item">
+            <span>03</span>
+            <h3>Track Notices</h3>
+            <p>Dashboard reminders help prepare for validation, payout updates, and LGU follow-up.</p>
+          </article>
         </div>
       </section>
 
@@ -90,7 +151,7 @@ export default function HomePage() {
             <p className="section-kicker">Schedule Board</p>
             <h2>Target Payout and Processing Schedule</h2>
           </div>
-          <div className="age-pill">
+          <div className="age-pill status-panel">
             <span>Portal Status</span>
             <strong>Active</strong>
           </div>

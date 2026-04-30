@@ -54,6 +54,10 @@ export default function DashboardPage() {
     <main className="page-shell">
       <section className="dashboard-hero">
         <div>
+          <div className="service-ribbon">
+            <span>Applicant Dashboard</span>
+            <span>LGU Tracking View</span>
+          </div>
           <p className="eyebrow">Applicant Dashboard</p>
           <h1>Welcome, {profile.firstName}</h1>
           <p className="hero-copy">
@@ -70,6 +74,24 @@ export default function DashboardPage() {
             Logout
           </button>
         </div>
+      </section>
+
+      <section className="status-overview-grid">
+        <article className="status-overview-card">
+          <span className="status-chip pending">Pending Review</span>
+          <h2>Online registration received</h2>
+          <p>Your applicant record is already in the portal and is waiting for MSWDO validation.</p>
+        </article>
+        <article className="status-overview-card">
+          <span className="status-chip neutral">Next Step</span>
+          <h2>Prepare your documents</h2>
+          <p>Keep valid ID and supporting details ready in case follow-up confirmation is requested.</p>
+        </article>
+        <article className="status-overview-card">
+          <span className="status-chip success">Portal Ready</span>
+          <h2>Check notices anytime</h2>
+          <p>Return here for payout advisories, processing reminders, and applicant updates.</p>
+        </article>
       </section>
 
       <section className="dashboard-grid">

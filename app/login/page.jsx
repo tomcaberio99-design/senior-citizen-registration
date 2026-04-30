@@ -32,11 +32,20 @@ export default function LoginPage() {
   return (
     <main className="page-shell narrow-shell">
       <section className="subpage-hero">
+        <div className="service-ribbon">
+          <span>Secure Applicant Access</span>
+          <span>Dashboard Login</span>
+        </div>
         <p className="eyebrow">Portal Access</p>
         <h1>Login to Your Dashboard</h1>
         <p className="hero-copy">
           View announcements, payout reminders, and your submitted registration details.
         </p>
+        <div className="hero-badges">
+          <span>Check Application Status</span>
+          <span>Review Advisories</span>
+          <span>Follow-Up Reminders</span>
+        </div>
       </section>
 
       <section className="form-card auth-card">
@@ -44,6 +53,9 @@ export default function LoginPage() {
           <div>
             <p className="section-kicker">Account Login</p>
             <h2>Welcome Back</h2>
+            <p className="section-copy">
+              Sign in using the same email address and password created during online registration.
+            </p>
           </div>
         </div>
 
@@ -66,6 +78,17 @@ export default function LoginPage() {
             <p>{message}</p>
           </div>
         ) : null}
+
+        <div className="auth-help-grid">
+          <article className="info-callout">
+            <strong>Login reminder</strong>
+            <p>Use the account that was created after a successful applicant registration.</p>
+          </article>
+          <article className="info-callout">
+            <strong>Need an account first?</strong>
+            <p>Create a new applicant account before checking status, notices, and dashboard details.</p>
+          </article>
+        </div>
 
         <p className="auth-switch">
           No account yet? <Link href="/register">Register here</Link>

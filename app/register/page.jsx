@@ -133,12 +133,21 @@ export default function RegisterPage() {
   return (
     <main className="page-shell">
       <section className="subpage-hero">
+        <div className="service-ribbon">
+          <span>Registration Module</span>
+          <span>Pending Review Workflow</span>
+        </div>
         <p className="eyebrow">Online Registration</p>
         <h1>Create Applicant Account</h1>
         <p className="hero-copy">
           Fill out the pre-registration form and create your portal login so you can
           check announcements and follow-up notices.
         </p>
+        <div className="hero-badges">
+          <span>Senior Applicant Details</span>
+          <span>Barangay Information</span>
+          <span>Portal Account Setup</span>
+        </div>
         <div className="hero-actions">
           <Link href="/" className="button-link secondary">
             Back to Portal
@@ -154,11 +163,26 @@ export default function RegisterPage() {
           <div>
             <p className="section-kicker">Applicant Form</p>
             <h2>Senior Citizen Registration</h2>
+            <p className="section-copy">
+              Qualified applicants must be at least 60 years old. All online submissions
+              will be forwarded to the LGU system as pending until staff validation.
+            </p>
           </div>
           <div className="age-pill">
             <span>Computed Age</span>
             <strong>{age || "--"}</strong>
           </div>
+        </div>
+
+        <div className="form-intro-grid">
+          <article className="info-callout">
+            <strong>Before you continue</strong>
+            <p>Prepare the applicant&apos;s complete name, birth date, address, and contact number.</p>
+          </article>
+          <article className="info-callout emphasis">
+            <strong>What happens after submit</strong>
+            <p>The portal creates a reference ID, saves the user session, and sends the record for LGU review.</p>
+          </article>
         </div>
 
         <form className="registration-form" onSubmit={handleSubmit}>
