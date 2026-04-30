@@ -129,6 +129,14 @@ button {
   margin-top: 1.5rem;
 }
 
+.hero-actions,
+.dashboard-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
 .hero-badges span,
 .age-pill,
 .program-card span {
@@ -139,6 +147,38 @@ button {
 
 .hero-badges span {
   padding: 0.75rem 1rem;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.2rem;
+  border-radius: 18px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.button-link:hover {
+  transform: translateY(-1px);
+}
+
+.button-link.primary {
+  color: #fff8f2;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+.button-link.secondary {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line);
+}
+
+.as-button {
+  border: 0;
+  cursor: pointer;
 }
 
 .info-grid {
@@ -152,6 +192,26 @@ button {
 .schedule-card,
 .form-card {
   padding: 1.75rem;
+}
+
+.subpage-hero,
+.dashboard-hero,
+.dashboard-card {
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.subpage-hero,
+.dashboard-hero {
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.narrow-shell {
+  width: min(760px, calc(100% - 2rem));
 }
 
 .section-heading {
@@ -256,6 +316,54 @@ button {
   gap: 1rem;
 }
 
+.auth-card {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.auth-form input {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0.95rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.auth-form input:focus {
+  outline: 2px solid rgba(163, 76, 28, 0.18);
+  border-color: var(--primary);
+}
+
+.auth-form button {
+  border: 0;
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  font-weight: 700;
+  color: #fff8f2;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  cursor: pointer;
+}
+
+.auth-switch {
+  margin: 1rem 0 0;
+  color: var(--muted);
+}
+
+.auth-switch a {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
 .registration-form label {
   display: flex;
   flex-direction: column;
@@ -319,11 +427,52 @@ button {
   color: var(--error-text);
 }
 
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-card {
+  padding: 1.5rem;
+}
+
+.dashboard-card h2 {
+  margin-top: 0;
+}
+
+.profile-lines,
+.dashboard-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.dashboard-list-item,
+.profile-lines div {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.76);
+  padding: 0.9rem 1rem;
+}
+
+.dashboard-list-item strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--primary-dark);
+}
+
+.dashboard-list-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
 @media (max-width: 920px) {
   .hero-grid,
   .info-grid,
   .program-list,
-  .schedule-grid {
+  .schedule-grid,
+  .dashboard-grid {
     grid-template-columns: 1fr;
   }
 }
